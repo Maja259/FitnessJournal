@@ -34,17 +34,16 @@ export default {
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
         const user = userCredential.user;
 
-        // Чување на податоците во Firestore
         await setDoc(doc(db, "users", user.uid), {
           fullName: fullName.value,
           email: email.value,
           workoutGoal: workoutGoal.value,
           weight: weight.value,
           height: height.value,
-          registeredAt: new Date().toISOString(), // Датум кога се регистрирал
+          registeredAt: new Date().toISOString(),
         });
 
-        router.push("/"); // Пренасочи по успешна регистрација
+        router.push("/");
       } catch (error) {
         alert(error.message);
       }

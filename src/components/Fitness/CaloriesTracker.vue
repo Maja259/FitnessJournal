@@ -4,7 +4,6 @@
     <p v-if="calories !== null">{{ calories }} kcal - {{ statusMessage }}</p>
     <button @click="popupOpen = true" class="calories-button"></button>
 
-    <!-- Вметнување на Popup компонентата -->
     <CaloriePopup
         :isOpen="popupOpen"
         @save="updateCalories"
